@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
         TouchHelperCallback touchHelperCallback = new TouchHelperCallback();
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchHelperCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
-        SpinnerAdapter sp = new ArrayAdapter<String>(MainActivity.this, android.R.layout.activity_list_item, s);
+        SpinnerAdapter sp = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, s);
         searchView.setAdapter(sp);
     }
 
