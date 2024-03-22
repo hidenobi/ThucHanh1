@@ -5,10 +5,12 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.SearchView;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,11 +32,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-    SearchView searchView;
+    Spinner searchView;
     RecyclerView recyclerView;
     FloatingActionButton floatingActionButton;
     ItemAdapter itemAdapter;
     ArrayList<Item> list;
+    String[] s = {"", "Châm biếm", "Sự thật", "Phê phán"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,24 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initActions() {
-        class QueryText implements SearchView.OnQueryTextListener {
-
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                searchByName(s);
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                if (s == null || s.isEmpty()) {
-                    searchByName(null);
-                }
-                return true;
-            }
-        }
-        QueryText queryText = new QueryText();
-        searchView.setOnQueryTextListener(queryText);
+        searchByName((String) searchView.getSelectedItem());
         floatingActionButton.setOnClickListener(view -> {
             openBottomSheet(null);
         });
@@ -80,10 +66,35 @@ public class MainActivity extends AppCompatActivity {
         if (s == null || s.isEmpty()) {
             itemAdapter.setList(list);
         } else {
+            String a = "Phê phán";
+            String b = "Sự thật";
+            String c = "Châm biếm";
             ArrayList<Item> searchList = new ArrayList<>();
             for (Item item : list) {
-                if (item.name.toLowerCase().contains(s.toLowerCase())) {
-                    searchList.add(item);
+                boolean isExits = false;
+                if (item.isDefender) {
+                    if (a.toLowerCase().contains(s.toLowerCase())) {
+                        if (!isExits) {
+                            searchList.add(item);
+                            isExits = true;
+                        }
+                    }
+                }
+                if (item.isMidfielder) {
+                    if (b.toLowerCase().contains(s.toLowerCase())) {
+                        if (!isExits) {
+                            searchList.add(item);
+                            isExits = true;
+                        }
+                    }
+                }
+                {
+                    if (c.toLowerCase().contains(s.toLowerCase())) {
+                        if (!isExits) {
+                            searchList.add(item);
+                            isExits = true;
+                        }
+                    }
                 }
             }
             itemAdapter.setList(searchList);
@@ -224,6 +235,8 @@ public class MainActivity extends AppCompatActivity {
         TouchHelperCallback touchHelperCallback = new TouchHelperCallback();
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchHelperCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
+        SpinnerAdapter sp = new ArrayAdapter<String>(MainActivity.this, android.R.layout.activity_list_item, s);
+        searchView.setAdapter(sp);
     }
 
     private void initView() {
