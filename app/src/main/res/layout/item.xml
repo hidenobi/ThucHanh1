@@ -14,15 +14,6 @@
         android:layout_height="match_parent"
         android:padding="6dp">
 
-        <ImageView
-            android:id="@+id/iv_avt"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:padding="10dp"
-            android:src="@drawable/ic_women"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_name"
@@ -30,7 +21,7 @@
             android:layout_height="wrap_content"
             android:text="name"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_avt"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="0.2" />
 
@@ -39,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="32dp"
             android:clickable="false"
-            android:text="defender"
+            android:text="Phê phán"
             app:layout_constraintStart_toEndOf="@id/tv_name"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,7 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="32dp"
             android:clickable="false"
-            android:text="midfielder"
+            android:text="Sự thật"
             app:layout_constraintStart_toStartOf="@id/cb_defender"
             app:layout_constraintTop_toBottomOf="@id/cb_defender" />
 
@@ -57,7 +48,7 @@
             android:layout_width="0dp"
             android:layout_height="32dp"
             android:clickable="false"
-            android:text="striker"
+            android:text="Châm biếm"
             app:layout_constraintStart_toStartOf="@id/cb_defender"
             app:layout_constraintTop_toBottomOf="@+id/cb_midfielder" />
 

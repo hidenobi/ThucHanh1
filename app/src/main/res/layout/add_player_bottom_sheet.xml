@@ -62,7 +62,7 @@
             android:autofillHints="dateTime"
             android:drawablePadding="24dp"
             android:ellipsize="end"
-            android:hint="Birthday"
+            android:hint="Thời gian"
             android:maxLines="1"
             android:paddingStart="10dp"
             android:paddingEnd="0dp"
@@ -100,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="32dp"
             android:buttonTint="@color/ColorGray"
-            android:text="defender"
+            android:text="Phê phán"
             android:textColor="@color/ColorGray"
             android:textSize="16sp" />
 
@@ -109,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="32dp"
             android:buttonTint="@color/ColorGray"
-            android:text="midfielder"
+            android:text="Sự thật"
             android:textColor="@color/ColorGray"
             android:textSize="16sp" />
 
@@ -118,34 +118,8 @@
             android:layout_width="wrap_content"
             android:layout_height="32dp"
             android:buttonTint="@color/ColorGray"
-            android:text="striker"
+            android:text="Châm biếm"
             android:textColor="@color/ColorGray"
             android:textSize="16sp" />
     </LinearLayout>
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        app:layout_constraintTop_toBottomOf="@id/llSubTitle">
-
-        <RadioButton
-            android:id="@+id/rb_male"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/ColorGray"
-            android:checked="true"
-            android:text="male"
-            android:textColor="@color/ColorGray"
-            android:textSize="16sp" />
-
-        <RadioButton
-            android:id="@+id/rb_female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/ColorGray"
-            android:text="female"
-            android:textColor="@color/ColorGray"
-            android:textSize="16sp" />
-    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>

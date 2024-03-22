@@ -1,6 +1,6 @@
 package com.example.thbuoi1;
 
-import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,8 +26,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.time.LocalDate;
-import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -110,42 +107,26 @@ public class MainActivity extends AppCompatActivity {
         CheckBox cbDefender = view.findViewById(R.id.cb_defender);
         CheckBox cbMidfielder = view.findViewById(R.id.cb_midfielder);
         CheckBox cbStriker = view.findViewById(R.id.cb_striker);
-        RadioButton rbMale = view.findViewById(R.id.rb_male);
-        RadioButton rbFemale = view.findViewById(R.id.rb_female);
         if (item != null) {
             edtName.setText(item.name);
             tvDateTime.setText(item.birthday);
             cbDefender.setChecked(item.isDefender);
             cbMidfielder.setChecked(item.isMidfielder);
             cbStriker.setChecked(item.isStriker);
-            if (item.gender == Gender.MALE) {
-                rbMale.setChecked(true);
-                rbFemale.setChecked(false);
-            } else {
-                rbMale.setChecked(false);
-                rbFemale.setChecked(true);
-            }
         }
         tvDateTime.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 Calendar c = Calendar.getInstance();
-                int mYear = c.get(Calendar.YEAR);
-                int mMonth = c.get(Calendar.MONTH);
-                int mDay = c.get(Calendar.DAY_OF_MONTH);
+                int hour = c.get(Calendar.HOUR_OF_DAY);
+                int minute = c.get(Calendar.MINUTE);
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                TimePickerDialog datePickerDialog = new TimePickerDialog(
                         MainActivity.this,
-                        (datePicker, year, monthOfYear, dayOfMonth) -> {
-                            LocalDate chooseTime = LocalDate.of(year, monthOfYear + 1, dayOfMonth);
-                            long chooseMillisecond = chooseTime.atStartOfDay().toInstant(ZoneOffset.UTC).toEpochMilli();
-                            if (chooseMillisecond > System.currentTimeMillis()) {
-                                showToast("Set new birthday fail");
-                            } else {
-                                tvDateTime.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-                            }
-                        }, mYear, mMonth, mDay
+                        (timePicker, i, i1) -> {
+                            tvDateTime.setText(i + ":" + i1);
+                        }, hour, minute, true
                 );
                 datePickerDialog.show();
             }
@@ -173,18 +154,12 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 color = R.color.ColorLightYellow;
             }
-            Gender gender;
-            if (rbMale.isChecked()) {
-                gender = Gender.MALE;
-            } else {
-                gender = Gender.FEMALE;
-            }
             if (name.isEmpty() || date.isEmpty()) {
                 showToast("The fields is not null");
             } else if (!isDefender && !isMidfielder && !isStriker) {
                 showToast("Must choose one position");
             } else {
-                Item newItem = new Item(name, date, gender, isDefender, isMidfielder, isStriker, color, id);
+                Item newItem = new Item(name, date, isDefender, isMidfielder, isStriker, color, id);
                 if (item == null) {
                     saveItem(newItem);
                 } else {
@@ -262,8 +237,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(
                 new Item(
                         "David",
-                        "12/07/2002",
-                        Gender.MALE,
+                        "13:00",
                         true,
                         false,
                         false,
@@ -274,8 +248,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(
                 new Item(
                         "JK",
-                        "12/07/2002",
-                        Gender.FEMALE,
+                        "12:00",
                         true,
                         true,
                         false,

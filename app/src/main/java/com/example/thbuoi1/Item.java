@@ -8,7 +8,6 @@ import java.io.Serializable;
 public class Item implements Serializable {
     public String name;
     public String birthday;
-    public Gender gender;
     public boolean isDefender = false;
     public boolean isMidfielder = false;
     public boolean isStriker = false;
@@ -25,20 +24,18 @@ public class Item implements Serializable {
         }
     }
 
-    public Item(String name, String birthday, Gender gender, boolean isDefender, boolean isMidfielder, boolean isStriker, int color) {
+    public Item(String name, String birthday, boolean isDefender, boolean isMidfielder, boolean isStriker, int color) {
         this.name = name;
         this.birthday = birthday;
-        this.gender = gender;
         this.isDefender = isDefender;
         this.isMidfielder = isMidfielder;
         this.isStriker = isStriker;
         this.color = color;
     }
 
-    public Item(String name, String birthday, Gender gender, boolean isDefender, boolean isMidfielder, boolean isStriker, int color, long id) {
+    public Item(String name, String birthday, boolean isDefender, boolean isMidfielder, boolean isStriker, int color, long id) {
         this.name = name;
         this.birthday = birthday;
-        this.gender = gender;
         this.isDefender = isDefender;
         this.isMidfielder = isMidfielder;
         this.isStriker = isStriker;

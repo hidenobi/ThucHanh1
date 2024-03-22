@@ -2,16 +2,13 @@ package com.example.thbuoi1;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.content.res.AppCompatResources;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,13 +41,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         holder.cardView.setCardBackgroundColor(resources.getColor(item.color, context.getTheme()));
         holder.name.setText(item.name);
         holder.birthday.setText(item.birthday);
-        Drawable avt;
-        if (item.gender == Gender.MALE) {
-            avt = AppCompatResources.getDrawable(context, R.drawable.ic_man);
-        } else {
-            avt = AppCompatResources.getDrawable(context, R.drawable.ic_women);
-        }
-        holder.gender.setImageDrawable(avt);
         holder.cbDefender.setChecked(item.isDefender);
         holder.cbMidfielder.setChecked(item.isMidfielder);
         holder.cbStriker.setChecked(item.isStriker);
@@ -74,7 +64,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
         TextView name, birthday;
-        ImageView gender;
         CheckBox cbDefender, cbMidfielder, cbStriker;
 
         public ViewHolder(@NonNull View itemView) {
@@ -82,7 +71,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             cardView = itemView.findViewById(R.id.card_item);
             name = itemView.findViewById(R.id.tv_name);
             birthday = itemView.findViewById(R.id.tv_year);
-            gender = itemView.findViewById(R.id.iv_avt);
             cbDefender = itemView.findViewById(R.id.cb_defender);
             cbMidfielder = itemView.findViewById(R.id.cb_midfielder);
             cbStriker = itemView.findViewById(R.id.cb_striker);
