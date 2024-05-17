@@ -10,8 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
+import androidx.navigation.Navigation;
 
 import com.example.thbuoi1.MyApplication;
+import com.example.thbuoi1.R;
 import com.example.thbuoi1.adapter.ItemDataAdapter;
 import com.example.thbuoi1.adapter.OnClickItem;
 import com.example.thbuoi1.databinding.FragmentRightBinding;
@@ -50,6 +52,9 @@ public class RightFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initData();
         initAdapter();
+        binding.btnAdd.setOnClickListener(v -> {
+            Navigation.findNavController(RightFragment.this.requireView()).navigate(R.id.action_rightFragment_to_createFragment);
+        });
     }
 
     private void initData() {

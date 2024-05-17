@@ -1,7 +1,5 @@
 package com.example.thbuoi1.adapter;
 
-import android.content.Context;
-import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.thbuoi1.databinding.ItemInfoHomeBinding;
 import com.example.thbuoi1.models.ItemData;
-import com.example.thbuoi1.models.enums.Scope;
-import com.example.thbuoi1.models.enums.Subject;
 
 import java.util.ArrayList;
 
@@ -62,7 +58,23 @@ public class ItemDataAdapter extends RecyclerView.Adapter<ItemDataAdapter.ViewHo
         }
 
         void bind(ItemData itemData) {
-
+            binding.tvName.setText(itemData.name);
+            binding.date.setText(itemData.date);
+            switch (itemData.scope) {
+                case CNTT:
+                    binding.cntt.setChecked(true);
+                case KT:
+                    binding.kt.setChecked(true);
+                case QTKD:
+                    binding.qtkd.setChecked(true);
+                case TKDH:
+                    binding.tkdh.setChecked(true);
+            }
+            if (itemData.active) {
+                binding.active.setChecked(true);
+            }
+            binding.hocPhi.setText("Hoc phi: " + itemData.hocPhi);
+            binding.ivDelete.setVisibility(View.VISIBLE);
             binding.ivDelete.setOnClickListener(view -> {
                 onClickItem.delete(itemData);
             });

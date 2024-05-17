@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.CreateFragment">
+
+    <EditText
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:hint="Thuat toan sieu toc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="19/03/2002"
+        app:layout_constraintStart_toStartOf="@id/tvName"
+        app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+    <RadioGroup
+        android:id="@+id/rgScope"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/tvName"
+        app:layout_constraintTop_toBottomOf="@id/date">
+
+        <RadioButton
+            android:id="@+id/cntt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+
+            android:paddingHorizontal="4dp"
+            android:text="CNTT" />
+
+        <RadioButton
+            android:id="@+id/kt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:paddingHorizontal="4dp"
+            android:text="Ke toan" />
+
+        <RadioButton
+            android:id="@+id/tkdh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:paddingHorizontal="4dp"
+            android:text="Thiet ke do hoa" />
+
+        <RadioButton
+            android:id="@+id/qtkd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:paddingHorizontal="4dp"
+            android:text="Quan tri kinh doanh" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/llSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@id/tvName"
+        app:layout_constraintTop_toBottomOf="@id/rgScope">
+
+        <CheckBox
+            android:id="@+id/active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:paddingHorizontal="4dp"
+            android:text="Kich hoat" />
+
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/hocPhi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/hoc_phi_s"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@id/tvName"
+        app:layout_constraintTop_toBottomOf="@id/llSubject" />
+
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        app:layout_constraintStart_toStartOf="@id/tvName"
+        app:layout_constraintTop_toBottomOf="@id/hocPhi" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,5 +26,14 @@
         android:id="@+id/rightFragment"
         android:name="com.example.thbuoi1.fragments.RightFragment"
         android:label="fragment_right"
-        tools:layout="@layout/fragment_right" />
+        tools:layout="@layout/fragment_right" >
+        <action
+            android:id="@+id/action_rightFragment_to_createFragment"
+            app:destination="@id/createFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createFragment"
+        android:name="com.example.thbuoi1.fragments.CreateFragment"
+        android:label="fragment_create"
+        tools:layout="@layout/fragment_create" />
 </navigation>
