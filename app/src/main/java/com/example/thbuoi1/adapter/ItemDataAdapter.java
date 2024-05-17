@@ -62,33 +62,7 @@ public class ItemDataAdapter extends RecyclerView.Adapter<ItemDataAdapter.ViewHo
         }
 
         void bind(ItemData itemData) {
-            binding.ivImg.setVisibility(View.GONE);
-            binding.tvFavourite.setVisibility(View.GONE);
-            binding.ivDelete.setVisibility(View.VISIBLE);
-            binding.tvName.setText(itemData.name);
-            binding.author.setText(itemData.author);
-            if (itemData.scope == Scope.STUDY) {
-                binding.search.setChecked(false);
-                binding.study.setChecked(true);
-            } else {
-                binding.search.setChecked(true);
-                binding.study.setChecked(false);
-            }
-            binding.cbCNTT.setChecked(false);
-            binding.cbVT.setChecked(false);
-            binding.cbDT.setChecked(false);
-            itemData.subjects.forEach(subject -> {
-                if (subject == Subject.CNTT) {
-                    binding.cbCNTT.setChecked(true);
-                }
-                if (subject == Subject.VT) {
-                    binding.cbVT.setChecked(true);
-                }
-                if (subject == Subject.DT) {
-                    binding.cbDT.setChecked(true);
-                }
-            });
-            binding.rating.setRating(itemData.rating);
+
             binding.ivDelete.setOnClickListener(view -> {
                 onClickItem.delete(itemData);
             });

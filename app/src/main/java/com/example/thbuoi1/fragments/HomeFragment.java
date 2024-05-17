@@ -56,47 +56,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void initActions() {
-        binding.btnAdd.setOnClickListener(view -> {
-            Scope scope;
-            if (binding.rbStudy.isChecked()) {
-                scope = Scope.STUDY;
-            } else {
-                scope = Scope.SEARCH;
-            }
-            ArrayList<Subject> subjects = new ArrayList<>();
-            if (binding.cbCNTT1.isChecked()) {
-                subjects.add(Subject.CNTT);
-            }
-            if (binding.cbVT1.isChecked()) {
-                subjects.add(Subject.VT);
-            }
-            if (binding.cbDT1.isChecked()) {
-                subjects.add(Subject.DT);
-            }
-            String name = binding.edtName.getText().toString();
-            if (name.isEmpty()) {
-                showToast();
-                return;
-            }
-            String author = binding.edtAuthor.getText().toString();
-            if (author.isEmpty()) {
-                showToast();
-                return;
-            }
-            ItemData itemData = new ItemData(
-                    name,
-                    author,
-                    scope,
-                    subjects,
-                    binding.rating1.getRating()
-            );
-            Log.i(TAG, "initActions: " + itemData.subjects);
-            if (itemData.uid == 0) {
-                MyApplication.appDatabase.itemDataDao().saveItemData(itemData);
-            } else {
-                MyApplication.appDatabase.itemDataDao().updateItemData(itemData);
-            }
-        });
+
     }
 
     @Override

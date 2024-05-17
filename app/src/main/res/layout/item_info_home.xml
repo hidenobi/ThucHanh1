@@ -33,35 +33,50 @@
             android:id="@+id/author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nguyen Manh Son"
+            android:text="19/03/2002"
             app:layout_constraintStart_toStartOf="@id/tvName"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
 
         <RadioGroup
             android:id="@+id/rgScope"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             app:layout_constraintStart_toStartOf="@id/tvName"
             app:layout_constraintTop_toBottomOf="@id/author">
 
             <RadioButton
-                android:id="@+id/study"
+                android:id="@+id/cntt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:clickable="false"
                 android:paddingHorizontal="4dp"
-                android:text="Hoc" />
+                android:text="CNTT" />
 
             <RadioButton
-                android:id="@+id/search"
+                android:id="@+id/kt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="false"
                 android:paddingHorizontal="4dp"
-                android:text="Tra cuu" />
+                android:text="Ke toan" />
+
+            <RadioButton
+                android:id="@+id/tkdh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:paddingHorizontal="4dp"
+                android:text="Thiet ke do hoa" />
+
+            <RadioButton
+                android:id="@+id/qtkd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:paddingHorizontal="4dp"
+                android:text="Quan tri kinh doanh" />
         </RadioGroup>
 
         <LinearLayout
@@ -76,46 +91,21 @@
                 android:id="@+id/cbCNTT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:clickable="false"
                 android:paddingHorizontal="4dp"
-                android:text="CNTT" />
+                android:text="Kich hoat" />
 
-            <CheckBox
-                android:id="@+id/cbVT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:paddingHorizontal="4dp"
-                android:text="VT" />
 
-            <CheckBox
-                android:id="@+id/cbDT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:paddingHorizontal="4dp"
-                android:text="DT" />
         </LinearLayout>
 
-        <RatingBar
-            android:id="@+id/rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:isIndicator="true"
-            android:numStars="5"
-            android:rating="1"
-            android:stepSize="1"
-            app:layout_constraintStart_toStartOf="@id/tvName"
-            app:layout_constraintTop_toBottomOf="@id/llSubject" />
 
         <TextView
-            android:id="@+id/tvFavourite"
+            android:id="@+id/hocPhi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Em thich conan"
+            android:text="@string/hoc_phi_s"
             app:layout_constraintStart_toStartOf="@id/tvName"
-            app:layout_constraintTop_toBottomOf="@id/rating" />
+            app:layout_constraintTop_toBottomOf="@id/llSubject" />
 
         <ImageView
             android:id="@+id/ivDelete"
@@ -124,7 +114,7 @@
             android:src="@drawable/ic_delete"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="@id/tvName"
-            app:layout_constraintTop_toBottomOf="@id/tvFavourite" />
+            app:layout_constraintTop_toBottomOf="@id/hocPhi" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

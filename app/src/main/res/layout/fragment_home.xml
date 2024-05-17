@@ -6,103 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".fragments.HomeFragment">
 
-    <include
-        android:id="@+id/item_info_home"
-        layout="@layout/item_info_home" />
-
-    <EditText
-        android:id="@+id/edtName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:hint="Conan"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/item_info_home" />
-
-    <EditText
-        android:id="@+id/edtAuthor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Nguyen Manh Son"
-        app:layout_constraintStart_toStartOf="@id/edtName"
-        app:layout_constraintTop_toBottomOf="@id/edtName" />
-
-    <RadioGroup
-        android:id="@+id/rgScope"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="@id/edtName"
-        app:layout_constraintTop_toBottomOf="@id/edtAuthor">
-
-        <RadioButton
-            android:id="@+id/rbStudy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:paddingHorizontal="4dp"
-            android:text="Hoc" />
-
-        <RadioButton
-            android:id="@+id/rbSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="4dp"
-            android:text="Tra cuu" />
-    </RadioGroup>
-
-    <LinearLayout
-        android:id="@+id/llSubject"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="@id/edtName"
-        app:layout_constraintTop_toBottomOf="@id/rgScope">
-
-        <CheckBox
-            android:id="@+id/cbCNTT1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:paddingHorizontal="4dp"
-            android:text="CNTT" />
-
-        <CheckBox
-            android:id="@+id/cbVT1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="4dp"
-            android:text="VT" />
-
-        <CheckBox
-            android:id="@+id/cbDT1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="4dp"
-            android:text="DT" />
-    </LinearLayout>
-
-    <RatingBar
-        android:id="@+id/rating1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:numStars="5"
-        android:rating="1"
-        android:stepSize="1"
-        app:layout_constraintStart_toStartOf="@id/edtName"
-        app:layout_constraintTop_toBottomOf="@id/llSubject" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/colorAccent"
-        android:contentDescription="@string/add"
-        android:src="@drawable/ic_add"
-        android:tint="@color/ColorWhite"
+    <ImageView
+        android:id="@+id/ivImg"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Ngành: CNTT"
+        app:layout_constraintStart_toEndOf="@id/ivImg"
+        app:layout_constraintTop_toTopOf="@id/ivImg" />
+
+    <TextView
+        android:id="@+id/lyDo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="12dp"
+        android:text="So với các ngành nghề khác, mức thu nhập của nhân viên CNTT thường cao hơn. Theo khảo sát của Vietnamworks, mức lương trung bình của lập trình viên phần mềm tại Việt Nam là 20 triệu đồng/tháng, có thể lên tới 50 triệu đồng/tháng hoặc cao hơn đối với những người có kinh nghiệm và chuyên môn cao."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivImg" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
